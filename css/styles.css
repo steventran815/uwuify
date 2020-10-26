@@ -1,0 +1,231 @@
+@font-face{
+  font-family:"Astro";
+  src:url(./fonts/astro-city.ttf)
+}
+body{
+  margin:0;
+  overflow:hidden;
+  position:relative;
+}
+#world {
+  position:absolute;
+  top:0px;
+  pointer-events:none;
+  z-index: 2;
+  transition: all 3s;
+  transition-delay: 1s;
+}
+.container{
+  height: 100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  overflow:hidden;
+}
+.hidden{
+  opacity:0;
+}
+.form-container{
+  width:80%;
+  padding:25px;
+  display:flex;
+  align-items:center;
+  justify-content: center;;
+}
+form{
+  text-align:center;
+  width:75%;
+}
+.uwu-input{
+  font-size:24px;
+  border-bottom:1px solid #000000;
+  border-right:none;
+  border-top:none;
+  border-left:none;
+  margin:25px 0px;
+  text-align:center;
+  width:100%;
+}
+.input-and-count{
+  position:relative;
+  width:100%;
+}
+.character-count-div{
+  position:absolute;
+  bottom:0px;
+  right: 0px;
+}
+.uwu-input:focus{
+  outline:none;
+}
+.uwu-output{
+  padding:0px 10%;
+  text-align:center;
+  font-size:32px;
+  line-height:150%;
+  font-family: "Astro";
+  color:white;
+  margin-bottom:15px;
+}
+.dancing-gif{
+  position:absolute;
+  left:-200px;
+  bottom:0px;
+  width:200px;
+  transition:all ease  0.75s;
+  z-index:150;
+  /* display:none; */
+}
+.chika-gif{
+  position:absolute;
+  right:-200px;
+  bottom:0px;
+  width:200px;
+  transition:all ease  0.75s;
+  z-index:150;
+  transform: scaleX(-1);
+  /* display:none; */
+}
+.sway-gif{
+  position:absolute;
+  left:-350px;
+  top:30%;
+  width:320px;
+  transition:all ease  0.75s;
+  z-index:15;
+  transform: rotate(90deg)
+}
+
+.sway-gif-2{
+  position:absolute;
+  right:-350px;
+  top:30%;
+  width:320px;
+  transition:all ease  0.75s;
+  z-index:15;
+  transform: rotate(-90deg) scaleX(-1);
+}
+.reveal{
+  opacity:1;
+}
+.output-div{
+  width:100%;
+  position:absolute;
+  transition:all linear 1s;
+  background-color:pink;
+  height:20vh;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
+.fade-in-left{
+  left:0% !important;
+}
+.fade-in-left-sway{
+  left:-100px !important;
+}
+.fade-in-right-sway{
+  right:-100px !important;
+}
+.fade-in-right{
+  right:0% !important;
+}
+.fade-in-up{
+  bottom:0px !important;
+}
+.first, .second, .third, .fourth, .fifth{
+  height:20%;
+}
+.first{
+  left:-250%;
+  top:0%;
+}
+.second{
+  left:-175%;
+  top:20%;
+}
+.third{
+  left:-110%;
+  top:40%;
+}
+.fourth{
+  left:-175%;
+  top:60%;
+  z-index:0;
+}
+.fifth{
+  left:-250%;
+  top:80%;
+}
+.cute-star{
+  position:absolute;
+  right:-7.5%;
+  height:85%;
+  z-index:10;
+}
+.cannot-click{
+  pointer-events: none;
+}
+.submit-button{
+  padding:10px 35px;
+}
+.spin{
+  animation-name: spin;
+  animation-duration: 2s;
+  animation-iteration-count: 1;
+  animation-fill-mode:forwards;
+}
+.output-text-div{
+  text-align:center;
+  border: 15px solid #fff;
+  border-radius: 18px;
+  z-index:149;
+  width:60%;
+  padding: 50px 0px;
+  background-color:pink;
+}
+.shy-fingers{
+  font-size:60px;
+  z-index:150;
+  margin-top:0px;
+  margin-bottom:15px;
+}
+@keyframes spin{
+  50%{
+    transform:translate(50%,0)rotate(720deg);
+    height:300%;
+    opacity:1;
+  }
+  100%{
+    transform:translate(100%,0)rotate(360deg);
+    height:0%;
+    opacity:0;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .sway-gif-2, .sway-gif{
+    display:none
+  }
+  .dancing-gif, .chika-gif{
+    width:150px;
+  }
+  .output-text-div{
+    text-align:center;
+    border: 10px solid #fff;
+    border-radius: 18px;
+    z-index:149;
+    width:90%;
+    padding: 50px 0px;
+    background-color:pink;
+  }
+  .uwu-output{
+    padding:0px 10%;
+    text-align:center;
+    font-size:24px;
+    line-height:150%;
+    font-family: "Astro";
+    color:white;
+    margin-bottom:15px;
+  }
+}
