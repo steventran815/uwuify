@@ -14,8 +14,8 @@ var confetti = document.getElementById("world")
 var outputBox = document.getElementById("outputBox");
 var sway = document.getElementById("sway");
 var sway2 = document.getElementById("sway2");
-var animeMusic = new Audio("sounds/animeSong.mp3");
-var glitterSound = new Audio("sounds/glitter.mp3");
+var animeMusic = new Audio("../sounds/animeSong.mp3");
+var glitterSound = new Audio("../sounds/glitter.mp3");
 var voices = window.speechSynthesis.getVoices();
 
 button.addEventListener("click", uwuify);
