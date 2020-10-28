@@ -11,6 +11,7 @@ var dancingGif = document.getElementById("dancingGif");
 var chikaGif = document.getElementById("chika");
 var shyFingers = document.getElementById("shyFingers");
 var confetti = document.getElementById("world")
+var outputBox = document.getElementById("outputBox");
 var sway = document.getElementById("sway");
 var sway2 = document.getElementById("sway2");
 var animeMusic = new Audio("sounds/animeSong.mp3");
@@ -280,7 +281,9 @@ function updateDOM() {
   sway.classList.add("fade-in-left-sway");
   sway.classList.add("reveal");
   sway2.classList.add("fade-in-right-sway");
-  sway2.classList.add("reveals");
+  sway2.classList.add("reveal");
   confetti.classList.remove("hidden");
-  confetti.classList.add("reveal")
+  confetti.classList.add("reveal");
+  outputBox.classList.remove("hidden");
+  outputBox.classList.add("reveal");
 }
