@@ -14,11 +14,14 @@ var confetti = document.getElementById("world")
 var outputBox = document.getElementById("outputBox");
 var sway = document.getElementById("sway");
 var sway2 = document.getElementById("sway2");
-var animeMusic = new Audio("../sounds/animeSong.mp3");
-var glitterSound = new Audio("../sounds/glitter.mp3");
-var voices = window.speechSynthesis.getVoices();
+var resetButton = document.getElementById("resetButton")
+
+var animeMusic = new Audio("sounds/animeSong.mp3");
+var glitterSound = new Audio("sounds/glitter.mp3");
+// var voices = window.speechSynthesis.getVoices();
 
 button.addEventListener("click", uwuify);
+resetButton.addEventListener("click",reset);
 
 function addSpin() {
   var cuteStar = document.querySelectorAll(".cute-star");
@@ -42,6 +45,7 @@ function uwuify() {
     output.textContent = "Pwease Enter a Sentence uwu";
     return;
   }
+
   var splitInput = inputValue.toLowerCase().split(" ");
   for (var i = 0; i < splitInput.length; i++) {
     var word = splitInput[i]
@@ -97,23 +101,23 @@ function uwuify() {
     }
 
     for (var j = 0; j < word.length - 1; j++) {
-      var newWord = word.replace("sh", "s").replace("rr","r")
+      var newWord = word
+        .replace("sh", "s")
+        .replace("rr", "r")
+        .replace("ss", "s");
       if (newWord[j] === "l" || newWord[j] === "r") {
         emptyArray.push("w");
-      } else if (word[j] === "s") {
+      } else if (newWord[j] === "s") {
         emptyArray.push("sh");
-      }
-        else if (word[j] === "v") {
-        emptyArray.push("b");
       } else {
         emptyArray.push(newWord[j]);
       }
     }
 
-    if(word.length ===1 ){
+    if(word.length === 1 ){
       emptyArray.push(word)
     } else {
-    emptyArray.push(newWord[word.length - 1]);
+      emptyArray.push(newWord[word.length - 1]);
     }
     emptyArray.push(" ");
     output.textContent = emptyArray.join("") + " uwu";
@@ -253,21 +257,18 @@ function uwuify() {
 }.call(this));
 function updateDOM() {
   var msg = new SpeechSynthesisUtterance(output.textContent);
-  msg.voice = voices[10]; // Note: some voices don't support altering params
-  msg.voiceURI = "native";
   msg.volume = 0.6; // 0 to 1
-  msg.rate = 10; // 0.1 to 10
-  msg.pitch = 2; //0 to 2
   msg.lang = "ja-JA";
   setTimeout(function () {
     window.speechSynthesis.speak(msg);
   }, 1500);
 
-  addSpin();
   animeMusic.volume = 0.08;
   animeMusic.play();
   glitterSound.volume = 0.16;
   glitterSound.play();
+
+  addSpin();
   body.classList.add("pink");
   outputDiv1.classList.add("fade-in-left");
   outputDiv2.classList.add("fade-in-left");
@@ -275,6 +276,7 @@ function updateDOM() {
   outputDiv4.classList.add("fade-in-left");
   outputDiv5.classList.add("fade-in-left");
   dancingGif.classList.add("fade-in-left");
+  resetButton.classList.add("fade-in-up-reset");
   dancingGif.classList.add("reveal");
   chikaGif.classList.add("fade-in-right");
   chikaGif.classList.add("reveal");
@@ -286,4 +288,8 @@ function updateDOM() {
   confetti.classList.add("reveal");
   outputBox.classList.remove("hidden");
   outputBox.classList.add("reveal");
+}
+
+function reset(){
+  window.location.reload();
 }
