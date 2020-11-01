@@ -6,6 +6,7 @@ body{
   margin:0;
   overflow:hidden;
   position:relative;
+  height:100vh;
 }
 #world {
   position:absolute;
@@ -260,7 +261,7 @@ form{
 
   .fade-in-up-reset{
     position:absolute;
-    bottom:-125px !important;
+    bottom:-100px !important;
     transition:bottom ease 0.50s;
     z-index:150;
     left:50%;
@@ -269,9 +270,9 @@ form{
   }
 
   .cute-star{
-  position:absolute;
-  right:-7.5%;
-  height:50%;
-  z-index:10;
+    position:absolute;
+    right:-7.5%;
+    height:50%;
+    z-index:10;
 }
 }
