@@ -58,6 +58,9 @@ function uwuify() {
     if (word === "i") {
       word = "me";
     }
+    if (word === "your") {
+      word = "ur";
+    }
     if (
       word === "its" ||
       word === "it's" ||
@@ -113,7 +116,6 @@ function uwuify() {
         emptyArray.push(newWord[j]);
       }
     }
-
     if(word.length === 1 ){
       emptyArray.push(word)
     } else {
