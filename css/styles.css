@@ -201,7 +201,7 @@ form{
   position:absolute;
   bottom:-600px;
   transition:bottom ease  0.50s;
-  z-index:15;
+  z-index:1500;
   left:50%;
   transform:translate(-50%,-50%);
 }
@@ -210,7 +210,7 @@ form{
   position:absolute;
   bottom:-175px !important;
   transition:all ease  0.75s;
-  z-index:15;
+  z-index:1500;
   left:50%;
   transform:translate(-50%,-50%);
 }
