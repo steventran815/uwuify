@@ -15,13 +15,22 @@ var outputBox = document.getElementById("outputBox");
 var sway = document.getElementById("sway");
 var sway2 = document.getElementById("sway2");
 var resetButton = document.getElementById("resetButton")
+var angryCat=document.getElementById("angryCat")
+var animeSong1 = new Audio("sounds/animeSong1.mp3");
+var animeSong2 = new Audio("sounds/animeSong2.mp3");
+var animeSong3 = new Audio("sounds/animeSong3.mp3");
+var animeSong4 = new Audio("sounds/animeSong4.mp3");
+var animeSong5 = new Audio("sounds/animeSong5.mp3");
 
-var animeMusic = new Audio("sounds/animeSong.mp3");
 var glitterSound = new Audio("sounds/glitter.mp3");
 // var voices = window.speechSynthesis.getVoices();
-
+var songArray = [animeSong1, animeSong2, animeSong3, animeSong4, animeSong5];
 button.addEventListener("click", uwuify);
 resetButton.addEventListener("click",reset);
+
+var randomSongNumber = Math.floor(
+  Math.random() * Math.floor(songArray.length)
+);
 
 function addSpin() {
   var cuteStar = document.querySelectorAll(".cute-star");
@@ -29,7 +38,6 @@ function addSpin() {
     cuteStar[i].classList.add("spin");
   }
 }
-
 setInterval(shy, 300);
 
 function shy() {
@@ -46,7 +54,16 @@ function uwuify() {
     return;
   }
 
+  if(inputValue.includes("angry")){
+    angryCat.classList.remove("hidden-cat")
+  }
+
   var splitInput = inputValue.toLowerCase().split(" ");
+  var randomNumber = Math.floor(Math.random() * Math.floor(splitInput.length));
+  var randomWord = splitInput[randomNumber];
+  var newRandomWord = randomWord[0] + "-" + randomWord;
+  splitInput[randomNumber] = newRandomWord;
+
   for (var i = 0; i < splitInput.length; i++) {
     var word = splitInput[i]
     if (word === "hi") {
@@ -85,7 +102,7 @@ function uwuify() {
       word = "hab";
     }
     if (word === "give") {
-      word = "gibu";
+      word = "gib";
     }
     if (word === "hey") {
       word = "ohayo";
@@ -99,9 +116,13 @@ function uwuify() {
     if (word === "lol") {
       word = "wwwwwww";
     }
+    if (word === "angry") {
+      word = "angy 😾";
+    }
     if (word === "gelowaggle") {
       word = "gewo-senpai";
     }
+
 
     for (var j = 0; j < word.length - 1; j++) {
       var newWord = word
@@ -122,7 +143,9 @@ function uwuify() {
       emptyArray.push(newWord[word.length - 1]);
     }
     emptyArray.push(" ");
-    output.textContent = emptyArray.join("") + " uwu";
+    output.textContent =
+      // emptyArray[randomNumber] + "-" +
+      emptyArray.join("") + " uwu";
   }
   updateDOM();
 }
@@ -265,8 +288,8 @@ function updateDOM() {
     window.speechSynthesis.speak(msg);
   }, 1500);
 
-  animeMusic.volume = 0.08;
-  animeMusic.play();
+  songArray[randomSongNumber].volume = 0.08;
+  songArray[randomSongNumber].play();
   glitterSound.volume = 0.16;
   glitterSound.play();
 
