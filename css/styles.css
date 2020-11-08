@@ -220,6 +220,35 @@ form{
   padding:50px;
 }
 
+.angry-cat{
+  width:100px;
+  height:100px;
+  animation: catdance linear 2s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes catdance{
+  0%{
+    transform: translate(0,0);
+  }
+  5%{
+    transform: translate(0,-7px);
+  }
+  10%{
+transform: translate(0,0);
+  }
+  15%{
+transform: translate(0,-7px);
+  }
+  20%{
+    transform: translate(0,0);
+  }
+}
+
+.hidden-cat{
+  display:none;
+}
+
 @keyframes spin{
   50%{
     transform:translate(50%,0)rotate(720deg);
@@ -274,5 +303,5 @@ form{
     right:-7.5%;
     height:50%;
     z-index:10;
-}
+  }
 }
