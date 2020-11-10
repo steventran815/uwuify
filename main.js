@@ -283,7 +283,7 @@ function uwuify() {
 function updateDOM() {
   var msg = new SpeechSynthesisUtterance(output.textContent);
   msg.volume = 0.6; // 0 to 1
-  msg.lang = "ja-JA";
+  msg.lang = "ja-JP";
   setTimeout(function () {
     window.speechSynthesis.speak(msg);
   }, 1500);
@@ -317,4 +317,11 @@ function updateDOM() {
 
 function reset(){
   window.location.reload();
+}
+
+function urlChomp() {
+  const message = new URLSearchParams(location.search).get("message");
+  if (!message) return;
+  input.value = message;
+  button.click();
 }
