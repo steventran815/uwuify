@@ -39,7 +39,7 @@ function addSpin() {
   }
 }
 setInterval(shy, 300);
-
+urlChomp()
 function shy() {
   return shyFingers.textContent === "👉      👈 "
     ? (shyFingers.textContent = "👉👈 ")
@@ -144,7 +144,6 @@ function uwuify() {
     }
     emptyArray.push(" ");
     output.textContent =
-      // emptyArray[randomNumber] + "-" +
       emptyArray.join("") + " uwu";
   }
   updateDOM();
@@ -323,5 +322,4 @@ function urlChomp() {
   const message = new URLSearchParams(location.search).get("message");
   if (!message) return;
   input.value = message;
-  button.click();
 }
