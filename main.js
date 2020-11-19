@@ -122,6 +122,9 @@ function uwuify() {
     if (word === "gelowaggle") {
       word = "gewo-senpai";
     }
+    if (word === "love"){
+      word = "wuv"
+    }
 
 
     for (var j = 0; j < word.length - 1; j++) {
@@ -282,14 +285,15 @@ function uwuify() {
 function updateDOM() {
   var msg = new SpeechSynthesisUtterance(output.textContent);
   msg.volume = 0.6; // 0 to 1
-  msg.lang = "ja-JP";
+  msg.lang = "ko-JP";
+  msg.pitch = 1.25;
   setTimeout(function () {
     window.speechSynthesis.speak(msg);
   }, 1500);
 
   songArray[randomSongNumber].volume = 0.08;
   songArray[randomSongNumber].play();
-  glitterSound.volume = 0.16;
+  glitterSound.volume = 0.15;
   glitterSound.play();
 
   addSpin();
