@@ -36,6 +36,7 @@ body{
 form{
   text-align:center;
   width:75%;
+  max-width:650px;
 }
 .uwu-input{
   font-size:24px;
@@ -204,6 +205,7 @@ form{
   z-index:1500;
   left:50%;
   transform:translate(-50%,-50%);
+  cursor:pointer;
 }
 
 .reset-button:hover{
