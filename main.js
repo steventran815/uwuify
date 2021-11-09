@@ -59,8 +59,11 @@ function uwuify() {
   if (inputValue.includes("angry")) {
     angryCat.classList.remove("hidden-cat");
   }
-
-  var splitInput = inputValue.toLowerCase().split(" ");
+  console.log(inputValue)
+  console.log("BEFORE TRIM", inputValue.length)
+  var trimmedValue = inputValue.trim()
+  console.log("AFTER TRIM", trimmedValue.length)
+  var splitInput = trimmedValue.toLowerCase().split(" ");
   var randomNumber = Math.floor(Math.random() * Math.floor(splitInput.length));
 
   var randomWord = splitInput[randomNumber];
